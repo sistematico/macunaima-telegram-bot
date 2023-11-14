@@ -1,3 +1,4 @@
+run-name: SSH Deploy
 on:
   push:
     branches:
@@ -19,3 +20,5 @@ jobs:
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
     - name: Cleanup
       run: rm -rf ~/.ssh
+
+
