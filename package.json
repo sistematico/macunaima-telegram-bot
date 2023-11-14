@@ -1,11 +1,18 @@
 {
   "name": "macunaima-telegram-bot",
-  "module": "index.ts",
+  "module": "src/bot.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun --hot run src/bot.ts"
+  },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "grammy": "^1.19.2"
   }
 }

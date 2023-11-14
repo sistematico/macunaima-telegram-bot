@@ -1,0 +1,14 @@
+[Unit]
+Description=Macunaíma Telegram Bot
+Documentation=https://github.com/sistematico/macunaima-telegram-bot
+After=network.target
+
+[Service]
+Environment=NODE_PORT=3001
+Type=simple
+User=nginx
+ExecStart=/home/nginx/.bun/bin/bun /var/www/macunaima-telegram-bot/src/index.ts
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
