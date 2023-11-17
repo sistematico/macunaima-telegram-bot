@@ -1,0 +1,1 @@
+nginx ALL=(root) NOPASSWD: /usr/bin/systemctl stop macunaima-telegram-bot.service, /usr/bin/systemctl start macunaima-telegram-bot.service, /usr/bin/systemctl restart macunaima-telegram-bot.service, /usr/bin/systemctl status macunaima-telegram-bot.service
