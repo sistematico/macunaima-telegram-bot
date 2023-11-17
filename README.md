@@ -9,6 +9,13 @@ Um “bot” anti-spam para o [Telegram](https://telegram.org).
 
 > Ai que preguiça...
 
+### 🦾 Comandos
+
+| Comando      | Parâmetros | Descrição | Exemplo | Contexto |
+| :--- | :---: | :---: | :---: | ---: |
+| `/add_banned_word` | `palavra ou frase` | Adiciona uma palavra ou frase as palavras banidas do grupo | `/add_banned_word api.whatsapp` | Grupo ou SuperGrupo
+| `/report` | `Motivo` | Reporta um usuário respondendo a mensagem | `/report SPAM` (responda mensagem do usuário com o comando) | Grupo ou SuperGrupo
+
 ### 🏃‍♂️ CI/CD
 
 [![CI](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/ci.yml)
@@ -26,7 +33,7 @@ Um “bot” anti-spam para o [Telegram](https://telegram.org).
 - [Arch Linux](https://archlinux.org)
 - [Fé](https://pt.wikipedia.org/wiki/Fé)
 
-### 👏 Ajude
+### 🛟 Ajude
 
 Se o meu trabalho foi útil de qualquer maneira, considere doar qualquer valor através do das seguintes plataformas:
 
