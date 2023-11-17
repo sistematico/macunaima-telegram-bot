@@ -1,4 +1,6 @@
+name: Bun Install
 run-name: Bun Install
+
 on: [push]
   
 jobs:
