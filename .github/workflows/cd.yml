@@ -31,4 +31,5 @@ jobs:
           script: |
             cd ${{ secrets.WORK_DIR }}
             bash scripts/deploy.sh            
+            bash scripts/db/reset.sh            
 
