@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=nginx
 WorkingDirectory={{ project_path }}
-ExecStart=/home/nginx/.bun/bin/bun {{ project_path }}/src/bot.ts
+ExecStart=/home/{{ bot_user }}/.bun/bin/bun {{ project_path }}/src/bot.ts
 Restart=on-failure
 RestartSec=5s
 

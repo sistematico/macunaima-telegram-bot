@@ -1,5 +1,6 @@
-project_path: /var/www/macunaima-telegram-bot
+project_path: /home/rocky/macunaima
 main_host: paxa.dev
 bot_host: macu.paxa.dev
+bot_user: rocky
 bot_port: 3002
 service_name: macunaima.service

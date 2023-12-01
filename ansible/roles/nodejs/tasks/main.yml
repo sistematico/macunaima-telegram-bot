@@ -1,9 +1,9 @@
 ---
 - name: >-
-    Allow the nginx user to run sudo /usr/bin/systemctl restart {{ service_name }}
+    Allow the {{ bot_user }} user to run sudo /usr/bin/systemctl restart {{ service_name }}
   community.general.sudoers:
     name: macunaima-service
-    user: nginx
+    user: "{{ bot_user }}"
     commands:
       - /usr/bin/systemctl restart {{ service_name }}
       - /usr/bin/systemctl stop {{ service_name }}

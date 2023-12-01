@@ -4,6 +4,13 @@
     name: nginx
     state: present
 
+- name: Alterar usuário no nginx.conf
+  lineinfile:
+    path: /etc/nginx/nginx.conf
+    regexp: '^user\s+\S+;'
+    line: 'user rocky;'
+    backrefs: yes
+
 - name: Assegurar que a pasta /etc/nginx/sites.d existe
   ansible.builtin.file:
     path: "/etc/nginx/sites.d"
