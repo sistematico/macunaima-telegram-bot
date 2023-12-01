@@ -33,6 +33,6 @@ jobs:
         script: |
           cd ${{ secrets.WORK_DIR }}
           [ ! -f .env ] && cp .env.production .env
-          #./scripts/database.sh
-          sudo /usr/bin/systemctl restart macunaima-telegram-bot.service
+          # ./scripts/database.sh
+          sudo /usr/bin/systemctl restart macunaima.service
 
