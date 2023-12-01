@@ -10,7 +10,7 @@ jobs:
       uses: appleboy/scp-action@v0.1.4
       with:
         host: ${{ secrets.SSH_HOST }}
-        username: nginx
+        username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.SSH_PASS }}
         port: 22
         source: "."
@@ -25,11 +25,12 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
-          username: nginx
+          username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
           port: 22
           script: |
             cd ${{ secrets.WORK_DIR }}
+            [ ! -f .env ] && cp .env.production .env
             bash scripts/deploy.sh            
             bash scripts/db/reset.sh            
 
