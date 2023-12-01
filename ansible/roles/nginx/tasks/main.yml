@@ -1,0 +1,22 @@
+---
+- name: Instalar Nginx
+  ansible.builtin.package:
+    name: nginx
+    state: present
+
+- name: Assegurar que a pasta /etc/nginx/sites.d existe
+  ansible.builtin.file:
+    path: "/etc/nginx/sites.d"
+    state: directory
+    mode: "0755"
+
+- name: Copiar arquivo de configuração do site
+  ansible.builtin.template:
+    src: "{{ bot_host }}.conf.j2"
+    dest: "/etc/nginx/sites.d/{{ bot_host }}.conf"
+    mode: "0644"
+
+- name: Reiniciar Nginx
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted

@@ -1,0 +1,10 @@
+---
+- name: Configurar todos os hosts
+  hosts: all
+  remote_user: root
+  vars_files:
+    - vars/secret.yml
+    - vars/main.yml
+  roles:
+    - nginx
+    - nodejs
