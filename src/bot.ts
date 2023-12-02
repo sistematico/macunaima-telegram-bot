@@ -36,7 +36,7 @@ bot.command(['reportar', 'report', 'warn'], async ctx => {
   if (ctx.chat.type !== 'group' && ctx.chat.type !== 'supergroup') return
 
   if (ctx.message?.reply_to_message) {
-    ctx.reply(JSON.stringify(ctx.message, null, 2))
+    // ctx.reply(JSON.stringify(ctx.message, null, 2))
 
     const targetMessage = ctx.message.reply_to_message
     const reason = ctx.message.text.split(' ').slice(1).join(' ')
