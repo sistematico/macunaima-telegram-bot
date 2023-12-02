@@ -3,7 +3,7 @@
 	"tasks": [
 		{
 			"type": "bun",
-			"script": "run --hot src/bot.ts",
+			"script": "dev",
 			"label": "bun: dev",
 			"detail": "bun --hot run src/bot.ts",
 			"runOptions": {
