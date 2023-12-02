@@ -21,7 +21,7 @@
 
 - name: Obter certificado SSL
   ansible.legacy.shell: |
-    certbot certonly --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare.ini -d {{ bot_host }}
+    certbot certonly --agree-tos -m sistematico@gmail.com --dns-cloudflare --dns-cloudflare-credentials /etc/cloudflare.ini -d "{{ bot_host }}"
   args:
     creates: /etc/letsencrypt/live/{{ bot_host }}
 

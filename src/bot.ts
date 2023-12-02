@@ -10,8 +10,12 @@ const bot = new Bot<Context>(token)
 bot.command('start', ctx => ctx.reply('Olá! Eu sou o seu bot!'))
 bot.on('message', ctx => ctx.reply('Você disse: ' + ctx.message.text))
 
-app.get('/', (c) => c.text('Macunaíma Telegram Bot'))
-app.post('/', webhookCallback(bot, 'hono'))
+if (Bun.env.NODE_ENV === 'production') {
+  app.get('/', c => c.text('Macunaíma Telegram Bot'))
+  app.post('/', webhookCallback(bot, 'hono'))
+} else {
+  bot.start()
+}
 
 export default { // export default app
   port: 3002,

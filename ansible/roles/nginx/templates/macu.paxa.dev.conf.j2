@@ -9,8 +9,8 @@ server {
     listen 443 ssl;
     listen [::]:443 ssl;
 
-    ssl_certificate         /etc/letsencrypt/live/{{ main_host }}/fullchain.pem;
-    ssl_certificate_key     /etc/letsencrypt/live/{{ main_host }}/privkey.pem;
+    ssl_certificate         /etc/letsencrypt/live/{{ bot_host }}/fullchain.pem;
+    ssl_certificate_key     /etc/letsencrypt/live/{{ bot_host }}/privkey.pem;
 
     server_name {{ bot_host }};
 

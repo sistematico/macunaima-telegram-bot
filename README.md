@@ -21,15 +21,32 @@ Um “bot” anti-spam para o [Telegram](https://telegram.org).
 [![CI](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/ci.yml/badge.svg)](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/ci.yml)
 [![CD](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/cd.yml/badge.svg)](https://github.com/sistematico/macunaima-telegram-bot/actions/workflows/cd.yml)
 
-### 📦 Instalação e testes
+### 📦 Instalação, configuração e testes
 
 - Converse com o [@BotFather](https://t.me/botfather) no Telegram, crie um “bot” e copie o Token
 - Adicione seu token no arquivo `.env`
 
+## Banco de dados [PostgreSQL](https://postgresql.org) ([Rocky Linux](https://rockylinux.org))
+
+```bash
+dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+
+dnf -qy module disable postgresql
+
+dnf install -y postgresql15-server
+
+/usr/pgsql-15/bin/postgresql-15-setup initdb
+
+systemctl --now enable postgresql-15.service
+```
+
 ### 👏 Créditos
 
+- [Ansible](https://www.ansible.com)
 - [Grammy](https://grammy.dev)
 - [Bun](https://bun.sh)
+- [Hono](https://hono.dev)
+- [Prisma](https://prisma.io)
 - [Arch Linux](https://archlinux.org)
 - [Fé](https://pt.wikipedia.org/wiki/Fé)
 

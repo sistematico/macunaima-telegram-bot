@@ -3,7 +3,8 @@
   "module": "src/bot.ts",
   "type": "module",
   "scripts": {
-    "dev": "bun --hot run src/bot.ts"
+    "start": "NODE_ENV=production bun src/bot.ts",
+    "dev": "NODE_ENV=development bun --hot run src/bot.ts"
   },
   "devDependencies": {
     "bun-types": "latest",
