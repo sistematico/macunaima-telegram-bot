@@ -19,7 +19,9 @@ if [ ! -z "$DB_CONNECTION_STRING" ]; then
     DB_NAME=$(echo $DB_CONNECTION_STRING | sed -e 's/.*\///')
 fi
 
-does_db_exist() { su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw $1" }
+does_db_exist() { 
+    su - postgres -c "psql -lqt | cut -d \| -f 1 | grep -qw $1" 
+}
 
 if does_db_exist $DB_NAME; then
     echo "O banco de dados $DB_NAME já existe. O script não será executado."
