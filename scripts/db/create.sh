@@ -29,7 +29,7 @@ if does_db_exist $DB_NAME; then
 fi
 
 # Criar usuário e banco de dados
-su - postgres -c "psql -c \"CREATE USER $DB_USER WITH PASSWORD '$DB_PASSWORD';\""
+su - postgres -c "psql -c \"CREATE USER $DB_USER WITH PASSWORD '$DB_PASS';\""
 su - postgres -c "psql -c \"CREATE DATABASE $DB_NAME WITH OWNER $DB_USER;\""
 
 echo "Configuração do banco de dados para Prisma concluída."
