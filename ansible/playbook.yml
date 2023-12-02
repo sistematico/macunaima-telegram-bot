@@ -6,5 +6,6 @@
     - vars/secret.yml
     - vars/main.yml
   roles:
+    - certbot
     - nginx
     - nodejs

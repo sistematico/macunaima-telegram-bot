@@ -1,4 +1,10 @@
 ---
+- name: Instalar o repositório EPEL
+  yum:
+    name: epel-release
+    state: present
+  when: ansible_os_family == "RedHat"
+
 - name: "Instalar Certbot e plugin Cloudflare"
   ansible.builtin.package:
     name: "{{ item }}"
@@ -8,7 +14,7 @@
     - python3-certbot-dns-cloudflare
 
 - name: "Copiar credenciais do Cloudflare"
-  ansible.builtin.copy:
+  ansible.builtin.template:
     src: cloudflare.ini.j2
     dest: /etc/cloudflare.ini
     mode: '0600'

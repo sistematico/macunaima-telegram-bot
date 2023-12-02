@@ -10,11 +10,10 @@ const bot = new Bot<Context>(token)
 bot.command('start', ctx => ctx.reply('Olá! Eu sou o seu bot!'))
 bot.on('message', ctx => ctx.reply('Você disse: ' + ctx.message.text))
 
-app.use(webhookCallback(bot, 'hono'))
+app.post('/', webhookCallback(bot, 'hono'))
+// app.use(webhookCallback(bot, 'hono'))
 
-// export default app
-
-export default {
+export default { // export default app
   port: 3002,
   fetch: app.fetch,
 }
