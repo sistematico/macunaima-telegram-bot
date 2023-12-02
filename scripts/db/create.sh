@@ -3,9 +3,9 @@
 DB_CONNECTION_STRING=$(grep 'DATABASE_URL' .env | cut -d '=' -f 2- | tr -d '"')
 
 if [ ! -z "$DB_CONNECTION_STRING" ]; then
-    DB_NAME=$(echo $DB_CONNECTION_STRING | cut -d '/' -f 3 | cut -d '?' -f 1)
-    DB_USER=$(echo $DB_CONNECTION_STRING | sed -e 's/postgresql:\/\///' | cut -d ':' -f 1)
-    DB_PASS=$(echo $DB_CONNECTION_STRING | cut -d ':' -f 2 | cut -d '@' -f 1)
+    DB_USER=$(echo $DB_CONNECTION_STRING | sed -e 's/.*:\/\/\([^:]*\):.*/\1/')
+    DB_PASS=$(echo $DB_CONNECTION_STRING | sed -e 's/.*:\/\/[^:]*:\([^@]*\)@.*/\1/')
+    DB_NAME=$(echo $DB_CONNECTION_STRING | sed -e 's/.*\/\([^?]*\)?.*/\1/')
     
     echo "Banco:   $DB_NAME"
     echo "Usuário: $DB_USER"
