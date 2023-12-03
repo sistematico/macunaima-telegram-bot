@@ -32,5 +32,6 @@ jobs:
             cd ${{ secrets.WORK_DIR }}
             [ ! -f .env ] && cp .env.production .env
             bash scripts/deploy.sh            
-            bash scripts/db/reset.sh            
+            bash scripts/db/reset.sh  
+            sudo /usr/bin/systemctl restart macunaima.service          
 

@@ -6,9 +6,6 @@
 			"script": "dev",
 			"label": "bun: dev",
 			"detail": "bun --hot run src/bot.ts",
-			"runOptions": {
-				"runOn": "folderOpen"
-			},
 			"presentation": {
 				"reveal": "never",
 				"focus": false,
