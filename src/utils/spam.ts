@@ -2,33 +2,13 @@ import { Context } from 'grammy'
 import { db, botHasDeletePermission, checkIfAdmin, sendLogToChannel } from '@/utils'
 
 export async function userOrGroup(ctx: Context) {
-  if (!ctx.from || !ctx.chat) return
-  if (ctx.chat.type !== 'group' && ctx.chat.type !== 'supergroup') return
-    
-  const isAdmin = await checkIfAdmin(ctx.chat.id, ctx.from.id)
-  if (!isAdmin) return
-
-  const content = ctx.msg && ctx.msg.text ? ctx.msg.text.split(' ').slice(1).join(' ') : null
-  if (!content) return
-
-  try {
-    let chat = await db.chat.findUnique({ where: { cid: ctx.chat.id } });
-    if (!chat) chat = await db.chat.create({ data: { cid: ctx.chat.id, name: ctx.chat.title } });
-    await db.bannedContent.create({ data: { content, chatId: chat.id } });
-
-    // ctx.reply("Palavra/Frase banida adicionada: " + content + " ao grupo: " + ctx.chat.title)
-    await sendLogToChannel("Palavra/Frase banida adicionada: " + content + " ao grupo: " + ctx.chat.title)
-    // await sendLogToChannel(`Mensagem apagada em ${chat.name} devido ao conteúdo banido: ${banned.content}`);
-  } catch (error) {
-    console.error(error)
-  }
-  await ctx.deleteMessage()
+  await sendLogToChannel('A implementar')
 }
 
 export async function addBannedWord(ctx: Context) {
   if (!ctx.from || !ctx.chat) return
   if (ctx.chat.type !== 'group' && ctx.chat.type !== 'supergroup') return
-    
+
   const isAdmin = await checkIfAdmin(ctx.chat.id, ctx.from.id)
   if (!isAdmin) return
 
@@ -36,14 +16,16 @@ export async function addBannedWord(ctx: Context) {
   if (!content) return
 
   try {
-    let chat = await db.chat.findUnique({ where: { cid: ctx.chat.id } });
-    if (!chat) chat = await db.chat.create({ data: { cid: ctx.chat.id, name: ctx.chat.title } });
-    await db.bannedContent.create({ data: { content, chatId: chat.id } });
-    const message = "Palavra/Frase banida adicionada: " + content + " ao grupo: " + ctx.chat.title
+    let chat = await db.chat.findUnique({ where: { cid: ctx.chat.id } })
+    if (!chat) chat = await db.chat.create({ data: { cid: ctx.chat.id, name: ctx.chat.title } })
+    await db.bannedContent.create({ data: { content, chatId: chat.id } })
+    const message = 'Palavra/Frase banida adicionada: ' + content + ' ao grupo: ' + ctx.chat.title
     await sendLogToChannel(message)
   } catch (error) {
     console.error(error)
   }
+
+  if (ctx.msg && 'message_id' in ctx.msg) ctx.api.deleteMessage(ctx.chat.id, ctx.msg.message_id)
 }
 
 export async function checkBannedWords(ctx: Context) {
@@ -71,7 +53,7 @@ export async function checkBannedWords(ctx: Context) {
           groupName = ctx.chat.username
         } else if (ctx.chat && 'title' in ctx.chat) {
           groupName = ctx.chat.title
-        }        
+        }
 
         const groupInfo = JSON.stringify(ctx.chat, null, 2)
         await sendLogToChannel(groupInfo)

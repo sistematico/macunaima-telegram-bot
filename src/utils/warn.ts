@@ -44,11 +44,8 @@ export async function warn(ctx: Context) {
   const senderIsAdmin = await checkIfAdmin(ctx.chat.id, target.from.id)
   if (senderIsAdmin) return
 
-  ctx.reply(JSON.stringify(target.from.id, null, 2))
-  // ctx.reply(JSON.stringify(ctx.message.message_id, null, 2))
   // await bot.api.sendMessage(-1002078227059, JSON.stringify(ctx.message.message_id, null, 2))
-
-  const reason = ctx.message.text?.split(' ').slice(1).join(' ') ?? 'Sem motivo especificado'
+  const reason = ctx.message.text ? ctx.message.text?.split(' ').slice(1).join(' ') : 'Sem motivo espeficado'
 
   let chat = await db.chat.findUnique({ where: { cid: ctx.chat.id } })
   if (!chat) chat = await db.chat.create({ data: { cid: ctx.chat.id, name: ctx.chat.title } })
