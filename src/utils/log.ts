@@ -1,8 +1,10 @@
 import { bot } from '@/utils'
 
+const logChannel = Bun.env.BOT_LOG_CHANNEL || '-1002078227059'
+
 export async function sendLogToChannel(message: string) {
   try {
-    await bot.api.sendMessage(-1002078227059, message)
+    await bot.api.sendMessage(logChannel, message)
   } catch (error) {
     console.error('Erro ao enviar log para o canal:', error)
   }

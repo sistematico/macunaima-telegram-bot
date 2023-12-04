@@ -1,10 +1,12 @@
 import { Hono } from 'hono'
 import { GrammyError, HttpError, webhookCallback } from 'grammy'
-import { bot, db, warn, checkIfAdmin, checkBannedWords, addBannedWord } from '@/utils'
+import { bot, db, warn, checkIfAdmin, checkBannedWords, addBannedWord, sendLogToChannel } from '@/utils'
 
-// const logChannelId = -1002078227059
 const app = new Hono()
 
+sendLogToChannel('🚀 Bot reiniciado: ' + new Date())
+
+bot.command('ping', (ctx) => ctx.reply('🤚 Pong!'))
 bot.command(['add_banned_word', 'addword'], async ctx => addBannedWord(ctx))
 bot.command(['reportar', 'report', 'warn'], async ctx => warn(ctx))
 
