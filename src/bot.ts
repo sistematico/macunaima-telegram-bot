@@ -16,8 +16,7 @@ bot.on('message', async ctx => checkBannedWords(ctx))
 // app.post('/', webhookCallback(bot, 'hono'))
 app.get('/', c => c.text('Macunaíma'))
 
-const isProduction = process.env.NODE_ENV === 'production'
-
+const isProduction = Bun.env.NODE_ENV === 'production'
 if (isProduction) {
   const webhookUrl = Bun.env.BOT_URL
   if (!webhookUrl) throw new Error('BOT_URL is required for production mode')
