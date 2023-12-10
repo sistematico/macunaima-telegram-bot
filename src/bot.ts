@@ -19,8 +19,8 @@ app.get('/', c => c.text('Macunaíma'))
 const isProduction = process.env.NODE_ENV === 'production'
 
 if (isProduction) {
-  const webhookUrl = Bun.env.WEBHOOK_URL
-  if (!webhookUrl) throw new Error('WEBHOOK_URL is required for production mode')
+  const webhookUrl = Bun.env.BOT_URL
+  if (!webhookUrl) throw new Error('BOT_URL is required for production mode')
 
   bot.api.setWebhook(webhookUrl)
   app.post('/', webhookCallback(bot, 'hono'))
