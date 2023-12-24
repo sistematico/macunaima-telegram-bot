@@ -31,7 +31,7 @@ export async function addBannedWord(ctx: Context) {
 export async function checkBannedWords(ctx: Context) {
   if (!ctx.message || !ctx.from || !ctx.chat || !ctx.msg || !ctx.msg.text) return
 
-  await sendLogToChannel(`Checando palavra...`)
+  // await sendLogToChannel(`Checando palavra...`)
 
   const isAdmin = await checkIfAdmin(ctx.chat.id, ctx.from.id)
   if (isAdmin) return

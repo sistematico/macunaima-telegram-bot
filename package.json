@@ -1,10 +1,10 @@
 {
   "name": "macunaima-telegram-bot",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Lucas Saliés Brum",
     "email": "paxa@paxa.dev",
-    "url": "https://paxa.dev"
+    "url": "https://macu.paxa.dev"
   },
   "module": "src/bot.ts",
   "type": "module",
