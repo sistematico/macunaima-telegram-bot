@@ -5,7 +5,8 @@ After=network.target
 [Service]
 User={{ bot_user }}
 WorkingDirectory={{ project_path }}
-ExecStart=/home/{{ bot_user }}/.bun/bin/bun run start
+ExecStart=/bin/bash -c "PATH=/home/{{ bot_user }}/.bun/bin:$PATH bun run start"
+#ExecStart=/home/{{ bot_user }}/.bun/bin/bun run start
 Restart=on-failure
 RestartSec=5s
 
