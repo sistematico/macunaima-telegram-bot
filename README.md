@@ -1,4 +1,4 @@
-# 🤖 Macunaíma
+# 🤖 Macunaíma Telegram Bot
 
 <!--suppress HtmlDeprecatedAttribute -->
 <div align="center">
@@ -26,19 +26,37 @@ Um “bot” anti-spam para o [Telegram](https://telegram.org).
 - Converse com o [@BotFather](https://t.me/botfather) no Telegram, crie um “bot” e copie o Token
 - Adicione seu token no arquivo `.env`
 
-## Banco de dados [PostgreSQL](https://postgresql.org) ([Rocky Linux](https://rockylinux.org))
+Ajustar o WebHook:
+
+```
+https://api.telegram.org/bot{TOKEN_DO_BOT}/setWebhook?url=https://url_do_seu_bot.com
+```
+
+## Instalação do Banco de dados [PostgreSQL](https://postgresql.org) ([Rocky Linux](https://rockylinux.org))
 
 ```bash
 dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 
 dnf -qy module disable postgresql
 
-dnf install -y postgresql15-server
+dnf install -y postgresql16-server
 
-/usr/pgsql-15/bin/postgresql-15-setup initdb
+/usr/pgsql-16/bin/postgresql-16-setup initdb
 
-systemctl --now enable postgresql-15.service
+systemctl --now enable postgresql-16.service
 ```
+
+## Configuração do Banco de dados [PostgreSQL](https://postgresql.org)
+
+```bash
+sudo -u postgres psql
+CREATE DATABASE macunaima;
+CREATE USER macunaima WITH PASSWORD 'senha';
+GRANT ALL PRIVILEGES ON DATABASE macunaima TO macunaima;
+\q
+```
+
+Ou use um [script](./scripts/db/create.sh) automatizado.
 
 ### 👏 Créditos
 

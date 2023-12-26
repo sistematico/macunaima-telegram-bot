@@ -13,6 +13,9 @@
     "prod": "NODE_ENV=production bun src/bot.ts",
     "dev": "NODE_ENV=development bun --watch run src/bot.ts"
   },
+  "prisma": {
+    "seed": "node --loader ts-node/esm ./prisma/seed.ts"
+  }, 
   "devDependencies": {
     "bun-types": "latest",
     "prisma": "^5.6.0",
