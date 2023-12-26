@@ -12,7 +12,7 @@ jobs:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.SSH_PASS }}
-        port: 22
+        port: ${{ secrets.SSH_PORT }}
         source: "."
         target: ${{ secrets.WORK_DIR }}
 
@@ -27,7 +27,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASS }}
-          port: 22
+          port: ${{ secrets.SSH_PORT }}
           script: |
             cd ${{ secrets.WORK_DIR }}
             [ ! -f .env ] && cp .env.production .env
