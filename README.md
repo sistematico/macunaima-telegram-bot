@@ -32,7 +32,7 @@ Ajustar o WebHook:
 https://api.telegram.org/bot{TOKEN_DO_BOT}/setWebhook?url=https://url_do_seu_bot.com
 ```
 
-## Instalação do Banco de dados [PostgreSQL](https://postgresql.org) ([Rocky Linux](https://rockylinux.org))
+#### Instalação do Banco de dados [PostgreSQL](https://postgresql.org) ([Rocky Linux](https://rockylinux.org))
 
 ```bash
 dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-9-x86_64/pgdg-redhat-repo-latest.noarch.rpm
@@ -46,7 +46,7 @@ dnf install -y postgresql16-server
 systemctl --now enable postgresql-16.service
 ```
 
-## Configuração do Banco de dados [PostgreSQL](https://postgresql.org)
+#### Configuração do Banco de dados [PostgreSQL](https://postgresql.org)
 
 ```bash
 sudo -u postgres psql
@@ -58,7 +58,7 @@ GRANT ALL PRIVILEGES ON DATABASE macunaima TO macunaima;
 
 Ou use um [script](./scripts/db/create.sh) automatizado.
 
-### 👏 Créditos
+## 👏 Créditos
 
 - [Ansible](https://www.ansible.com)
 - [Grammy](https://grammy.dev)
@@ -68,7 +68,7 @@ Ou use um [script](./scripts/db/create.sh) automatizado.
 - [Arch Linux](https://archlinux.org)
 - [Fé](https://pt.wikipedia.org/wiki/Fé)
 
-### 🛟 Ajude
+## 🛟 Ajude
 
 Se o meu trabalho foi útil de qualquer maneira, considere doar qualquer valor através do das seguintes plataformas:
 
